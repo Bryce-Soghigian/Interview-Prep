@@ -2,7 +2,8 @@
 function hourglassSum(arr) {
     /*
     loop through array and find the sum of all the hourglasses.
-    push those sums to a compare array
+    push those sums to a compare array and sort
+    default js sort has an average runtime of o(n)
     return the highest sum
     
     */
@@ -21,8 +22,7 @@ function hourglassSum(arr) {
     
     */
     //Loop through 2D array
-    const reducer = (accumulator, currentValue) => accumulator + currentValue;
-    let temp_sum =0;
+    let temp =0;
     let compare_array = []
     
     for(let i=0;i<=3;i++){
@@ -30,15 +30,15 @@ function hourglassSum(arr) {
             //make an hourglass
             //add up that hourglass
             //push the total to the compare_array
-              temp_sum += arr[i][j];
-              temp_sum += arr[i][j + 1];
-              temp_sum += arr[i][j + 2];
-              temp_sum += arr[i + 1][j + 1];
-              temp_sum += arr[i + 2][j]; 
-              temp_sum += arr[i + 2][j + 1];
-              temp_sum += arr[i + 2][j + 2];
-            compare_array.push(temp_sum)
-            temp_sum = 0;
+              temp += arr[i][j];
+              temp += arr[i][j + 1];
+              temp += arr[i][j + 2];
+              temp += arr[i + 1][j + 1];
+              temp += arr[i + 2][j]; 
+              temp += arr[i + 2][j + 1];
+              temp += arr[i + 2][j + 2];
+            compare_array.push(temp)
+            temp = 0;
         }
     }
     
